@@ -13,7 +13,7 @@ public class PageResult implements Serializable{
         super();
         this.total = total;
         this.rows = rows;
-    }
+}
     public Long getTotal() {
         return total;
     }

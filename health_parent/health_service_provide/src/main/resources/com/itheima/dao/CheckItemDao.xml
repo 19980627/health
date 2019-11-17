@@ -2,9 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper>
-<!--插入检查项数据-->
-<insert id="add" parameterType="com.itheima.pojo.CheckItem">
+<mapper namespace="com.itheima.dao.CheckItemDao">
+    <!--插入检查项数据-->
+    <insert id="add" parameterType="com.itheima.pojo.CheckItem">
+       insert into t_checkitem(code,name,sex,age,price,type,remark,attention) values (#{code},#{name},#{sex},#{age},#{price},#{type},#{remark},#{attention})
+   </insert>
 
-</insert>
+    <select id="selectByCondition" parameterType="String" resultType="com.itheima.pojo.CheckItem">
+        select * from t_checkitem
+        <if test="value != null and value.length > 0">
+            where code=#{value} or name = #{value}
+        </if>
+    </select>
+
+    <delete id="deleteById" parameterType="int" >
+        delete from t_checkitem where id=#{id}
+    </delete>
+
+
 </mapper>
