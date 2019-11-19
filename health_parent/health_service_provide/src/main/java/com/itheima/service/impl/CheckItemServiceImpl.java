@@ -53,5 +53,20 @@ public class CheckItemServiceImpl implements CheckItemService {
         checkItemDao.deleteById(id);
     }
 
+    @Override
+    public void edit(CheckItem checkItem) {
+        checkItemDao.edit(checkItem);
+    }
+
+    @Override
+    public CheckItem findById(Integer id) {
+        return checkItemDao.findById(id);
+    }
+
+
+    public List<CheckItem> findAll() {
+        return checkItemDao.findAll();
+    }
+
 }
 
